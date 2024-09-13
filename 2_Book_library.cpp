@@ -1,3 +1,8 @@
+/*
+    Assignment No 2
+    Arranging the books in Ascending ,Discending ,searching ,sorting the books according to the price. 
+*/
+
 #include <iostream>
 using namespace std;
 int n;
