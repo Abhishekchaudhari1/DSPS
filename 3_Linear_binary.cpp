@@ -1,3 +1,8 @@
+/*
+    Assignment no 3
+    Sorting and searching of Students Information by Linear search and Binary search
+*/
+
 #include <iostream>
 using namespace std;
 int n;
