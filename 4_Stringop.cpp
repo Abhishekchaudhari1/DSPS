@@ -1,6 +1,6 @@
 /*
-    Assignment No. 4
-
+    Assignment related to String operations 
+    without using any predefined function.
 */
 
 #include <iostream>
