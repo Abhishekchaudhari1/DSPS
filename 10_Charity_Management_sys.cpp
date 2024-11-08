@@ -1,4 +1,4 @@
-// charity managemaent sytem need to manage info about donars donation and other relavant data system need to maintain info about each doanr System should able to add ,remove, apdate the info of donar ,search donar, also display all donar present in the databse 
+// charity managemaent sytem need to manage info about donars donation and other relavant data system need to maintain info about each doanr System should able to add ,remove, update the info of donar ,search donar, also display all donar present in the databse 
 // Use LL to implement above system
 
 #include<iostream>
