@@ -14,20 +14,21 @@ class MLS{
     void updateTrack();
     void removeTrack();
 
-}*start = NULL, *end = NULL, M;
+}*start = NULL, *tail = NULL, M;
 
 void MLS::accept(){
     MLS *newnode,*temp;
     newnode = new MLS;
     newnode->prev = newnode->next = NULL;
-    cout <<"Enter the 'Music Track Details': \nName: ";
+    cout <<"Enter the 'Music Track Details': \nTrack Title: ";
     cin >> t_title;
     cout << "Artist: ";
     cin >> t_artist;
-    if (start == NULL){
+    if(start == NULL){
         start = newnode;
         t_no = 1;
-    } else {
+    } 
+    else{
         temp = start;
         while(temp->next != NULL){
             temp = temp->next;
@@ -39,15 +40,17 @@ void MLS::accept(){
 
 void MLS::displayAlltracks(){
     MLS *temp;
+    temp = start;
     while(temp != NULL){
-        cout << "\n" << t_no <<"\t" <<t_title << "\t" << t_artist << endl;
+        cout << "\n" << t_no <<"\t\t" <<t_title << "\t" << t_artist << endl;
         count++;
         temp = temp->next;
     }
+
 }
 
 void MLS::countTrack(){
-    cout <<"Total tracks in database are: "<<count;    
+    cout <<"\nTotal tracks in database are: "<<count<<"\n";    
 }
 
 void MLS::searchTrack(){
@@ -65,8 +68,9 @@ void MLS::searchTrack(){
         }
     }
     temp = temp->next;
-    if (flag = 0)
+    if(flag = 0){
         cout <<"\nERROR   404\nMusic Track Not Found!!\n";
+    }
     
 }
 
@@ -87,7 +91,7 @@ void MLS::updateTrack(){
         }
     }
     temp = temp->next;
-    if (flag = 0)
+    if(flag = 0)
         cout <<"\nERROR   404\nMusic Track Not Found!!\n";
 }
 
@@ -109,12 +113,13 @@ void MLS::removeTrack(){
     }
     temp = temp->next;
     if (flag = 0)
-        cout <<"\nERROR   404\nMusic Track Not Found!!\n";
+        cout <<"\nERROR 404\nMusic Track Not Found!!\n";
+
 }
 
 int main(){
     int ch;
-    while (ch != 7){
+    do{
         cout <<"\nMenu\n1. Add a new music track\n2. Diaplay All tracks\n3. Display number of tracks\n4. Search a track\n5. Update the existing track\n6. Remove a track\n7. Exit\n";
         cout <<"Enter your choice: ";
         cin>>ch;
@@ -125,20 +130,38 @@ int main(){
             cout <<"\nMusic track has been added successfully!\n";
             break;
         case 2:
-            cout <<"\nTrack No.\nTitle\tArtist";
-            M.displayAlltracks();
+            if (start == NULL){
+                cout <<"\nNo tracks to display!\nAdd a track first.\n";
+
+            } else{
+                cout <<"\nTrack No.\tTitle\tArtist";
+                M.displayAlltracks();
+            }
             break;
         case 3:
             M.countTrack();
             break;
         case 4:
-            M.searchTrack();
+            if (start == NULL){
+                cout <<"\nNo tracks to search!\nAdd a track first.\n";
+            } else{
+                M.searchTrack();
+            }
             break;
         case 5:
-            M.updateTrack();
+            if (start == NULL){
+                cout <<"\nNo tracks to update!\nAdd a track first.\n";
+            } else{
+                M.updateTrack();
+            }
             break;
         case 6:
-            M.removeTrack();
+            if (start == NULL){
+                cout <<"\nNo tracks to remove!\nAdd a track first.\n";
+            } else{
+                M.removeTrack();
+                cout<<"Track Removed Successfully..."<<endl;
+            }
             break;
         case 7:
             cout<<"Exiting...";
@@ -146,6 +169,6 @@ int main(){
             cout<<"\nEnter the valid choice (1/2/3/4/5/6): \n";
             break;
         }
-    }
+    }while(ch!=7);
     return 0;
 }
